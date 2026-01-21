@@ -17,6 +17,9 @@ Download the data and orgnaize as follows:
 data
 ├── Refer_Segm
 │   ├── refcoco
+│   │   ├── instances.json 
+│   │   ├── refs(google).p
+│   │   ├── refs(unc).p
 │   ├── refcoco+
 │   ├── refcocog
 │   ├── coco_2014
