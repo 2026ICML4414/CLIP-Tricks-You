@@ -44,62 +44,11 @@ Please see [`docs/datasets.md`](docs/datasets.md) for dataset preparation guidel
 
 ## Model Zoo
 
-See [`MODEL_ZOO.md`](./MODEL_ZOO.md) for our pretrained models.
+We use the official open-source pretrained checkpoints released by [GLaMM](https://github.com/mbzuai-oryx/groundingLMM).
+Please refer to the [documentation](https://github.com/mbzuai-oryx/groundingLMM/blob/main/docs/model_zoo.md) and download the `GLaMM-RefSeg` checkpoint.
+If you plan to fine-tune LiteLVLM, please additionally download the `GLaMM-GranD-Pretrained` checkpoint.
 
-## Training
-
-Our MS-DePro is built with [Detectron2](https://github.com/facebookresearch/detectron2). See [Getting Started with Detectron2](https://detectron2.readthedocs.io/en/latest/tutorials/getting_started.html) to learn about basic usage. We provide an example below for training our object detector on MSDA and MSDG settings.
-
-<details>
-
-<summary>
-1. Prepare the pretrained RegionCLIP model and set up the dataset.
-</summary>
-  
-- Check [`RegionCLIP`](https://github.com/microsoft/RegionCLIP/blob/main/docs/MODEL_ZOO.md) to 
-  - download the pretrained RegionCLIP checkpoint `regionclip_pretrained-cc_rn50.pth` to the folder `./pretrained`, 
-  - (optional) download the trained RPN checkpoint `rpn_coco_{48,65,80}.pth` to the folder `./pretrained`.
-- Check [`datasets/README.md`](datasets/README.md) to set up dataset.
-
-</details>
-
-<details>
-
-<summary>
-2. After preparation, run the following script to train an object detector.
-</summary>
-
-```
-#!/bin/bash
-
-CONFIG=$1
-NUM_GPUS=$2
-CUDA_DEVICES=$3
-NUM_THREADS=$4
-NUM_SRCS=$5
-IMG_BATCH=$6
-OUTPUT_DIR=$7
-
-export PYTHONPATH=$(pwd)
-CUDA_VISIBLE_DEVICES=$CUDA_DEVICES OMP_NUM_THREADS=$NUM_THREADS \
-    python tools/train_net.py \
-    --num-gpus $NUM_GPUS \
-    --config $CONFIG \
-    MODEL.BACKBONE_WEIGHTS pretrained/regionclip_pretrained-cc_rn50.pth \
-    MODEL.RESNETS.OUT_FEATURES "(('res2'), ('res4'))" \
-    DATASETS.NUM_SOURCES $NUM_SRCS \
-    SOLVER.IMG_PER_BATCH_LABEL $IMG_BATCH SOLVER.IMG_PER_BATCH_UNLABEL $IMG_BATCH \
-    OUTPUT_DIR $OUTPUT_DIR
-```
-
-For example, to run the `Cross-time` experiment using 4 GPUs, execute the following command:
-```
-sh dist_train.sh configs/MSDA/cross_time.sh 4 0,1,2,3 8 2 8 output/cross_time
-```
-
-</details>
-
-## Inference
+## Evaluation
 
 We provide an example below for evaluating our object detector on MSDA and MSDG settings.
 
