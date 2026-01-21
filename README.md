@@ -4,20 +4,43 @@ This is the official PyTorch implementation of LiteLVLM (ICML Under Review).
 
 ## Outline
 
-1. [Installation](#Installation)
-2. [Datasets](#Datasets)
+1. [LiteLVLM](#LiteLVLM)
+2. [Installation](#Installation)
+3. [Preparation](#Preparation)
 3. [Model Zoo](#Model-Zoo)
-4. [Training](#Training)
-5. [Inference](#Inference)
-6. [Acknowledgement](#Acknowledgement)
+4. [Evaluation](#Evaluation)
+5. [Acknowledgement](#Acknowledgement)
+
+## LiteLVLM
+
 
 ## Installation
 
-See [`INSTALL.md`](docs/INSTALL.md) for detailed installation instructions.
+1. Clone this repository.
+```bash
+https://github.com/2026ICML4414/CLIP-Tricks-You.git
+cd CLIP-Tricks-You
+```
+
+2. Setup a conda environment and install packages.
+```bash
+conda create -n LiteLVLM python=3.10 -y
+conda activate LiteLVLM
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
+pip install -r requirements.txt
+```
+
+3. Install mmcv
+```bash
+git clone https://github.com/open-mmlab/mmcv
+cd mmcv
+git checkout v1.4.7
+MMCV_WITH_OPS=1 pip install -e .
+```
 
 ## Datasets
 
-See [`datasets/README.md`](datasets/README.md) for dataset preparation guidelines.
+Please see [`docs/datasets.md`](docs/datasets.md) for dataset preparation guidelines.
 
 ## Model Zoo
 
