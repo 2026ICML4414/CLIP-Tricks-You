@@ -4,14 +4,14 @@ This is the official PyTorch implementation of LiteLVLM (ICML Under Review).
 
 ## Outline
 
-1. [LiteLVLM](#LiteLVLM)
+1. [Overview](#Overview)
 2. [Installation](#Installation)
 3. [Preparation](#Preparation)
 3. [Model Zoo](#Model-Zoo)
 4. [Evaluation](#Evaluation)
 5. [Acknowledgement](#Acknowledgement)
 
-## LiteLVLM
+## Overview
 
 
 ## Installation
