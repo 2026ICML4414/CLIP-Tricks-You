@@ -50,17 +50,17 @@ If you plan to fine-tune LiteLVLM, please additionally download the `GLaMM-GranD
 
 ## Evaluation
 
-We provide an example below for evaluating our object detector on MSDA and MSDG settings.
+Run the following example to evaluate our LiteLVLM on Referring Expression Segmentation benchmarks.
 
 <details>
 
 <summary>
-1. Prepare the trained detector and set up the dataset.
+1. Prepare the pretrained checkpoints and datasets.
 </summary>
   
-- Check [`MODEL_ZOO.md`](MODEL_ZOO.md) to 
-  - download the trained detector checkpoints to the folder `./output/`.
-- Check [`datasets/README.md`](datasets/README.md) to set up dataset.
+- Check [`MODEL_ZOO`](#Model-Zoo) to 
+  - download the pretrained pixel grounding model checkpoints to the folder `./checkpoints/`.
+- Check [`Datasets`](docs/datasets.md) to set up dataset.
 
 </details>
 
