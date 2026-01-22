@@ -9,7 +9,8 @@ This is the official PyTorch implementation of LiteLVLM (ICML Under Review).
 3. [Preparation](#Preparation)
 3. [Model Zoo](#Model-Zoo)
 4. [Evaluation](#Evaluation)
-5. [Acknowledgement](#Acknowledgement)
+5. [License](#License)
+6. [Acknowledgement](#Acknowledgement)
 
 ## LiteLVLM
 
@@ -67,39 +68,47 @@ Run the following example to evaluate our LiteLVLM on Referring Expression Segme
 <details>
 
 <summary>
-2. After preparation, run the following script to evaluate an object detector.
+2. After preparation, run the following script to evaluate LiteLVLM.
 </summary>
   
-```
+```bash
 #!/bin/bash
 
-CONFIG=$1
-NUM_GPUS=$2
-CUDA_DEVICES=$3
-NUM_THREADS=$4
-NUM_SRCS=$5
-WEIGHTS=$6
-OUTPUT_DIR=$7
+export CUDA_VISIBLE_DEVICES=0
+export PYTHONPATH="./:$PYTHONPATH"
+MASTER_PORT=22999
 
-export PYTHONPATH=$(pwd)
-CUDA_VISIBLE_DEVICES=$CUDA_DEVICES OMP_NUM_THREADS=$NUM_THREADS \
-    python tools/train_net.py \
-    --eval-only \
-    --num-gpus $NUM_GPUS \
-    --config $CONFIG \
-    MODEL.BACKBONE_WEIGHTS pretrained/regionclip_pretrained-cc_rn50.pth \
-    MODEL.WEIGHTS $WEIGHTS \
-    MODEL.RESNETS.OUT_FEATURES "(('res2'), ('res4'))" \
-    DATASETS.NUM_SOURCES $NUM_SRCS \
-    OUTPUT_DIR $OUTPUT_DIR
+CKPT_PATH=$1
+REF_SEG_DATASET=$2
+RESULT_PATH=$3
+RETAIN_TOKENS=$4
+
+deepspeed --master_port="$MASTER_PORT" eval/referring_seg/infer_and_evaluate.py \
+    --version "$CKPT_PATH" \
+    --refer_seg_data "$REF_SEG_DATASET" \
+    --results_path "$RESULT_PATH" \
+    --num_retain_tokens $RETAIN_TOKENS \
+    --pretrained
 ```
 
-For example, to evaluate the `Cross-time` experiment using a single GPU, execute the following command:
+To evaluate the **RefCOCO** benchamrk with **192 retained tokens**, run the following command:
+```bash
+bash eval/referring_seg/single_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'refcoco|val' 'run/LiteLVLM/192' 192
 ```
-sh slurm_test.sh configs/MSDA/cross_time.yaml 1 0 1 2 output/cross_time.pth eval/cross_time
+
+<summary>
+3. One-Click evaluation
+</summary>
+
+If you want to evaluate all benchmarks, run the following commad:
+```bash
+bash eval/referring_seg/run_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'run/LiteLVLM/192' 192
 ```
 
 </details>
+
+## License
+This project is released under the [Apache 2.0 license](./LICENSE).
 
 ## Acknowledgement
 We thank to [GLaMM](https://github.com/mbzuai-oryx/groundingLMM) and [VideoGLaMM](https://github.com/mbzuai-oryx/VideoGLaMM) for releasing their code as open source.
