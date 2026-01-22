@@ -95,16 +95,18 @@ To evaluate the **RefCOCO** benchamrk with **192 retained tokens**, run the foll
 ```bash
 bash eval/referring_seg/single_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'refcoco|val' 'run/LiteLVLM/192' 192
 ```
+</details>
+
+<details>
 
 <summary>
 3. One-Click evaluation
 </summary>
-
+  
 If you want to evaluate all benchmarks, run the following commad:
 ```bash
 bash eval/referring_seg/run_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'run/LiteLVLM/192' 192
 ```
-
 </details>
 
 ## License
