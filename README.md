@@ -44,9 +44,9 @@ Please see [`docs/datasets.md`](docs/datasets.md) for dataset preparation guidel
 
 ## Model Zoo
 
-We use the official open-source pretrained checkpoints released by [GLaMM](https://github.com/mbzuai-oryx/groundingLMM).
-Please refer to the [documentation](https://github.com/mbzuai-oryx/groundingLMM/blob/main/docs/model_zoo.md) and download the `GLaMM-RefSeg` checkpoint.
-If you plan to fine-tune LiteLVLM, please additionally download the `GLaMM-GranD-Pretrained` checkpoint.
+We use the official pretrained checkpoints released by [GLaMM](https://github.com/mbzuai-oryx/groundingLMM).
+Please refer to the [documentation](https://github.com/mbzuai-oryx/groundingLMM/blob/main/docs/model_zoo.md) to download the `GLaMM-RefSeg` checkpoint and place it in `checkpoints/`.
+For fine-tuning LiteLVLM, please additionally download the `GLaMM-GranD-Pretrained` checkpoint.
 
 ## Evaluation
 
