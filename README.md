@@ -2,7 +2,7 @@
 
 This is the official PyTorch implementation of LiteLVLM (ICML'26 Under Review).
 
-## Outline
+## 📢 Outline
 
 1. [LiteLVLM](#LiteLVLM)
 2. [Installation](#Installation)
