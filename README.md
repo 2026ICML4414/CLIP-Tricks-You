@@ -1,6 +1,6 @@
 # CLIP Tricks You: Training-free Token Pruning for Efficient Pixel Grounding in Large Vision-Language Models
 
-This is the official PyTorch implementation of LiteLVLM (ICML Under Review).
+This is the official PyTorch implementation of LiteLVLM (ICML'26 Under Review).
 
 ## Outline
 
