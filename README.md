@@ -15,7 +15,7 @@ This is the official PyTorch implementation of LiteLVLM (ICML'26 Under Review).
 ## <img src="images/logo.png" height="70"> LiteLVLM
 
 
-## Installation
+## 🚀 Installation
 
 1. Clone this repository.
 ```bash
@@ -39,17 +39,17 @@ git checkout v1.4.7
 MMCV_WITH_OPS=1 pip install -e .
 ```
 
-## Datasets
+## 📌 Datasets
 
 Please see [`docs/datasets.md`](docs/datasets.md) for dataset preparation guidelines.
 
-## Model Zoo
+## 🔍 Model Zoo
 
 We use the official pretrained checkpoints released by [GLaMM](https://github.com/mbzuai-oryx/groundingLMM](https://github.com/mbzuai-oryx/groundingLMM/blob/main/docs/model_zoo.md).
 Download the `GLaMM-RefSeg` from the HugginFace and place it in `checkpoints/`.
 If you plan to fine-tune LiteLVLM, please additionally download the `GLaMM-GranD-Pretrained` checkpoint.
 
-## Evaluation
+## ⚡ Evaluation
 
 Run the following example to evaluate our LiteLVLM on Referring Expression Segmentation benchmarks.
 
@@ -109,8 +109,8 @@ bash eval/referring_seg/run_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'run/LiteLV
 ```
 </details>
 
-## License
+## 📝 License
 This project is released under the [Apache 2.0 license](./LICENSE).
 
-## Acknowledgement
+## 🙏 Acknowledgement
 We thank to [GLaMM](https://github.com/mbzuai-oryx/groundingLMM) and [VideoGLaMM](https://github.com/mbzuai-oryx/VideoGLaMM) for releasing their code as open source.
