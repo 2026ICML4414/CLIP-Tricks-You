@@ -12,7 +12,7 @@ This is the official PyTorch implementation of LiteLVLM (ICML'26 Under Review).
 5. [License](#License)
 6. [Acknowledgement](#Acknowledgement)
 
-## <img src="images/logo.png" height="50"> LiteLVLM
+## <img src="images/logo.png" height="75"> LiteLVLM
 
 
 ## Installation
