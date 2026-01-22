@@ -91,7 +91,7 @@ deepspeed --master_port="$MASTER_PORT" eval/referring_seg/infer_and_evaluate.py 
     --pretrained
 ```
 
-To evaluate the **RefCOCO** benchamrk with **192 retained tokens**, run the following command:
+- To evaluate the **RefCOCO** benchamrk with **192 retained tokens**, run the following command:
 ```bash
 bash eval/referring_seg/single_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'refcoco|val' 'run/LiteLVLM/192' 192
 ```
@@ -103,7 +103,7 @@ bash eval/referring_seg/single_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'refcoco
 3. One-Click evaluation
 </summary>
   
-If you want to evaluate all benchmarks, run the following commad:
+- If you want to evaluate all benchmarks, run the following commad:
 ```bash
 bash eval/referring_seg/run_evaluation.sh 'checkpoints/GLaMM-RefSeg' 'run/LiteLVLM/192' 192
 ```
