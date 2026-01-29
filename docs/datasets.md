@@ -1,6 +1,6 @@
 # Prepare Datasets
 
-We provide instructions for preparing the dataset for LiteLVLM. The following steps are based on [GLaMM](https://github.com/mbzuai-oryx/groundingLMM/blob/main/docs/datasets.md).
+We provide instructions for preparing the dataset for LiteLVLM.
 
 ## Download Datasets
 For Referring Expression Segmentation, we adopt the COCO Referring Expression Comprehension datasets: RefCOCO, RefCOCO+, and RefCOCOg.
